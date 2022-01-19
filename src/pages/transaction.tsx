@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRouter } from 'next/router';
 import { getSession, GetSessionParams } from 'next-auth/react';
 import { useState } from 'react';
@@ -212,14 +213,14 @@ export async function getServerSideProps(
   context: GetSessionParams | undefined
 ) {
   const session = await getSession(context);
-  const accounts: any | undefined = await prisma?.account.findMany({
+  const accounts = await prisma?.account.findMany({
     include: { user: true },
   });
   const data: any[] = [];
   const userAccount: any[] = [];
 
   //iterate through all accounts
-  accounts.map((item: { user: { email: string | null | undefined } }) => {
+  accounts?.map((item: { user: { email: string | null | undefined } }) => {
     if (item.user.email != session?.user?.email) {
       return data.push(item);
     }
