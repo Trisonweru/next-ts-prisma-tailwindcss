@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // A utitlity to post and get data from an API then returning the response to the frontend.
 export const fetcher = async (
   url: string,

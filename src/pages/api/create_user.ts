@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const prisma = new PrismaClient();
+import prisma from '../../lib/prisma';
 
 //An API to help create a user when they sign up.
 

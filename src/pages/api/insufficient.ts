@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '@/lib/prisma';
 //API to help us deal with insufficient funds transactions
 // The dfifference with the transaction API is that we set failed to true to differentiate them from succesful ones.
 

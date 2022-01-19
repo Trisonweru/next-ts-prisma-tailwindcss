@@ -17,7 +17,8 @@
     "release": "standard-version",
     "push-release": "git push --follow-tags origin main",
     "postbuild": "next-sitemap",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.7.0",
@@ -61,6 +62,7 @@
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "prettier-plugin-sort-class-names": "^3.0.1",
+    "prisma": "^3.8.1",
     "react-test-renderer": "^17.0.2",
     "standard-version": "^9.3.2",
     "tailwindcss": "^3.0.12",

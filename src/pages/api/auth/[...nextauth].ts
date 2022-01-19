@@ -1,9 +1,8 @@
-import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import NextAuth from 'next-auth/next';
 import CredentialProvider from 'next-auth/providers/credentials';
 
-const prisma = new PrismaClient();
+import prisma from '@/lib/prisma';
 
 //We use next-auth package to authenicate our user using session and token.
 //With auth-next we use the credential API which receives credentials from sign in page.
