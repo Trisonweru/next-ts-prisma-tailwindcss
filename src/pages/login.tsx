@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 import { getSession, GetSessionParams, signIn } from 'next-auth/react';
 import { useState } from 'react';
 
-import prisma from '@/lib/prisma';
-
 import Seo from '@/components/Seo';
 
 export default function Signin() {
@@ -145,17 +143,17 @@ export async function getServerSideProps(
   context: GetSessionParams | undefined
 ) {
   const session = await getSession(context); // get the session
-  const user = await prisma?.user.findFirst({
-    where: { email: session?.user?.email || '' },
-  });
-  // find the account with the session user,
-  const account: any | undefined = await prisma?.account.findFirst({
-    where: { userId: user?.id },
-  });
+  // const user = await prisma?.user.findFirst({
+  //   where: { email: session?.user?.email || '' },
+  // });
+  // // find the account with the session user,
+  // const account: any | undefined = await prisma?.account.findFirst({
+  //   where: { userId: user?.id },
+  // });
 
   // then redirect to deposit page if thy have less than 1000 balance.
   //else redict to home page.
-  if (session && account[0]?.usd_balance > 1000) {
+  if (session) {
     return {
       redirect: {
         destination: '/',
@@ -164,14 +162,14 @@ export async function getServerSideProps(
     };
   }
 
-  if (session && account[0]?.usd_balance < 1000) {
-    return {
-      redirect: {
-        destination: '/deposit',
-        permanent: false,
-      },
-    };
-  }
+  // if (session && account[0]?.usd_balance < 1000) {
+  //   return {
+  //     redirect: {
+  //       destination: '/deposit',
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return {
     props: { session },
