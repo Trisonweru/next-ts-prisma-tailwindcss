@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import prisma from '@/lib/prisma';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 //API to help user to make deposit and add the balance to  the account table.
 // We also create a transaction after the depositing in  the transaction tables.
 

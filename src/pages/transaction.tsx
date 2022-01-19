@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/router';
 import { getSession, GetSessionParams } from 'next-auth/react';
 import { useState } from 'react';
 
-import prisma from '@/lib/prisma';
+const prisma = new PrismaClient();
 
 import Seo from '@/components/Seo';
 

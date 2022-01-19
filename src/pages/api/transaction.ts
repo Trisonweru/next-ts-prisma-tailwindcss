@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import prisma from '@/lib/prisma';
+const prisma = new PrismaClient();
 
 //API that helps with creating a transactiona and updating account balance.
 //When a user clicks on transact, we deduct the transaction amount from user account

@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { PrismaClient } from '@prisma/client';
 import { getSession, GetSessionParams } from 'next-auth/react';
 import * as React from 'react';
 
-import prisma from '@/lib/prisma';
+const prisma = new PrismaClient();
 
 import Card from '@/components/card/Card';
 import Header from '@/components/layout/Header';
